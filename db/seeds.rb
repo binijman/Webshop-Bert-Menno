@@ -54,16 +54,19 @@
 
 # - Create Streets in database
       straten.each do |name, info|
+          stad = info[0]
+
+          size = groups[stad][1]
+          puts size
                                # (name, group  , price  ,revenue,owner , set_size , image )
-           Street.create({
+           Card.create({
            name: name,
            group: info[0],
            price: info[1],
            revenue: info[2],
-           set_size: groups[name][1]
-           image: "#{name.downcase}.jpg"
-           color: groups[name][0]
-
+           set_size: size,
+           image: "#{name.downcase}.jpg",
+           #color: groups[stad][0]
          })
       end
 
